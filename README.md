@@ -17,7 +17,7 @@ Habitat-API currently uses [`Habitat-Sim`](https://github.com/facebookresearch/h
 ---
 
 ## Table of contents
-   1. [SmartWarehouse](#context)
+   1. [SmartWarehouse](#smartwarehouse)
    1. [Motivation](#motivation)
    1. [Citing Habitat](#citing-habitat)
    1. [Installation](#installation)
