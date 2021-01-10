@@ -17,6 +17,7 @@ Habitat-API currently uses [`Habitat-Sim`](https://github.com/facebookresearch/h
 ---
 
 ## Table of contents
+   1. [SmartWarehouse](#context)
    1. [Motivation](#motivation)
    1. [Citing Habitat](#citing-habitat)
    1. [Installation](#installation)
@@ -28,6 +29,9 @@ Habitat-API currently uses [`Habitat-Sim`](https://github.com/facebookresearch/h
    1. [Acknowledgments](#acknowledgments)
    1. [License](#license)
    1. [References](#references)
+
+## SmartWarehouse
+To connect the habitat-sim with the ROS code we use the habitat-interface and the habitat api. To use this project with our custom world we neede to make a few changes and instead of explainin how they should be done we already adapted it in this repository. By doing so we can further opitmize the installation procedure of the [hybrid-simulation](https://github.com/SmartWarehouse-UAntwerpen/hybrid-simulator)
 
 ## Motivation
 While there has been significant progress in the vision and language communities thanks to recent advances in deep representations, we believe there is a growing disconnect between ‘internet AI’ and embodied AI. The focus of the former is pattern recognition in images, videos, and text on datasets typically curated from the internet. The focus of the latter is to enable action by an embodied agent in an environment (e.g. a robot). This brings to the forefront issues of active perception, long-term planning, learning from interaction, and holding a dialog grounded in an environment.
