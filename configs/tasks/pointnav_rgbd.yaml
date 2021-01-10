@@ -17,7 +17,7 @@ SIMULATOR:
     HFOV: 90
     POSITION: [0, 0.25, 0] #this is relative to the base of the agents
     TYPE: HabitatSimBCSensor
-
+  SCENE: data/scene_datasets/habitat-test-scenes/moving_objects_lab.glb
 
 TASK:
   TYPE: Nav-v0
@@ -26,10 +26,8 @@ TASK:
   POINTGOAL_SENSOR:
     TYPE: PointGoalSensor
     GOAL_FORMAT: POLAR
-
   MEASUREMENTS: ['SPL']
   GOAL_SENSOR_UUID: pointgoal
   SPL:
     TYPE: SPL
     SUCCESS_DISTANCE: 0.2
-

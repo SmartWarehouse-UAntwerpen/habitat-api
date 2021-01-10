@@ -21,17 +21,17 @@ from habitat.tasks import make_task
 
 
 class Env:
-    r"""Fundamental environment class for ``habitat``. All the information 
+    r"""Fundamental environment class for ``habitat``. All the information
     needed for working on embodied tasks with simulator is abstracted inside
     Env. Acts as a base for other derived environment classes. Env consists
-    of three major components: ``dataset`` (``episodes``), ``simulator`` and 
+    of three major components: ``dataset`` (``episodes``), ``simulator`` and
     ``task`` and connects all the three components together.
 
     Args:
         config: config for the environment. Should contain id for simulator and
             ``task_name`` which are passed into ``make_sim`` and ``make_task``.
         dataset: reference to dataset for task instance level information.
-            Can be defined as ``None`` in which case ``_episodes`` should be 
+            Can be defined as ``None`` in which case ``_episodes`` should be
             populated from outside.
 
     Attributes:
@@ -80,8 +80,13 @@ class Env:
                 len(self._dataset.episodes) > 0
             ), "dataset should have non-empty episodes list"
             self._config.defrost()
+            # We added these lines to make sure no matter what we do the scene is taken from the yaml file.
+            for episode in self._dataset.episodes:
+                episode.scene_id = self._config.SIMULATOR.SCENE
             self._config.SIMULATOR.SCENE = self._dataset.episodes[0].scene_id
+            print(self._config.SIMULATOR.SCENE)
             self._config.freeze()
+
 
         self._sim = make_sim(
             id_sim=self._config.SIMULATOR.TYPE, config=self._config.SIMULATOR
@@ -213,7 +218,7 @@ class Env:
         r"""Perform an action in the environment and return observations.
 
         Args:
-            action: action (belonging to ``action_space``) to be performed 
+            action: action (belonging to ``action_space``) to be performed
                 inside the environment.
 
         Returns:
@@ -352,7 +357,7 @@ class RLEnv(gym.Env):
         ``(observations, reward, done, info)``.
 
         Args:
-            action: action (belonging to ``action_space``) to be performed 
+            action: action (belonging to ``action_space``) to be performed
                 inside the environment.
 
         Returns:
